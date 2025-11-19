@@ -41,4 +41,48 @@ router.get('/testsql', async (request, response) => {
     }
 });
 
+let messages = [];
+router.post('/sendMessage', (request, response) => {
+    /*
+    try {
+        const body = request.body;
+        const sender = body.sender;
+        const message = body.message;
+
+        const senderMessage = {
+            sender: sender,
+            message: message
+        };
+
+        messages.push(senderMessage);
+        console.log(messages);
+
+        response.status(200).json({
+            success: 'Üzenet fogadva',
+            results: messages
+        });
+
+    } catch (error) {
+        response.status(500).json({
+            message: 'Ez a végpont nem működik.'
+        });
+    }*/
+    const { sender, message } = request.body;
+    messages.push({
+        sender: sender,
+        message: message
+    });
+    console.log(messages);
+
+    response.status(200).json({
+        success: 'Üzenet fogadva!'
+    });
+});
+
+router.get('/asd', (request, response) => {
+    response.status(200).json({
+        success: 'asd'
+    });
+});
+
 module.exports = router;
