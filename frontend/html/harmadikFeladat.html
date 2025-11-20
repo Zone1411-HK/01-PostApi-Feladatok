@@ -11,14 +11,19 @@
         <script src="../bootstrap/js/bootstrap.min.js"></script>
         <!--!CSS-->
         <link rel="stylesheet" href="../css/index.css" />
+        <!--!JavaScript-->
+        <script src="../javascript/harmadikFeladat.js"></script>
     </head>
     <body>
-        <div class="container-fluid">
+        <div class="container">
             <div class="row text-center">
-                <a href="/elsoFeladat" class="display-5">Első Feladat</a>
-                <a href="/masodikFeladat" class="display-5">Második Feladat</a>
-                <a href="/harmadikFeladat" class="display-5">Harmadik Feladat</a>
-                <a href="/negyedikFeladat" class="display-5">Negyedik Feladat</a>
+                <div class="col-6" id="selectDiv">
+                </div>
+                <div class="col-6">
+                    <label for="textInput">Név: </label>
+                    <input type="text" id="textInput">
+                    <input type="button" value="Elküldés" id="submitBtn">
+                </div>
             </div>
         </div>
     </body>

@@ -79,6 +79,67 @@ router.post('/sendMessage', (request, response) => {
     });
 });
 
+let saveDataArray = [];
+router.post('/saveData', (request, response) => {
+    const { key } = request.body;
+
+    saveDataArray.push({
+        key: key
+    });
+    console.log(saveDataArray);
+
+
+    response.status(200).json({
+        success: "Sikeres mentés"
+    });
+})
+
+let harmadikNames = [];
+router.post('/names', (request, response) => {
+    const { name } = request.body;
+
+    harmadikNames.push(name);
+    console.log(harmadikNames);
+
+    response.status(200).json({
+        success: "Sikeres mentés!"
+    });
+});
+
+router.get('/names', (request, response) => {
+    response.status(200).json({
+        success: "Siker",
+        results: harmadikNames
+    });
+});
+
+let votes = [];
+router.post('/vote', (request, response) => {
+    const body = request.body;
+    const nominee = Object.keys(body)[0];
+
+    let i = 0;
+    while (i < votes.length && Object.keys(votes[i])[0] != nominee) {
+        i++;
+    }
+ 
+    if (i < votes.length) {
+        votes[i][nominee]++;
+    } else {
+        const tempObj = {
+            [nominee]: 1
+        };
+        votes.push(tempObj);
+    }
+
+    console.log(votes);
+
+    response.status(200).json({
+        result: votes
+    });
+
+});
+
 router.get('/asd', (request, response) => {
     response.status(200).json({
         success: 'asd'

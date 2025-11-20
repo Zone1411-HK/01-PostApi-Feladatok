@@ -1,1 +1,7 @@
-GET 127.0.0.1:3000/api/asd
+
+POST http://127.0.0.1:3000/api/vote
+content-type: application/json
+
+{
+    "a": "a"
+}
