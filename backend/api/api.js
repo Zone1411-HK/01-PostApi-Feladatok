@@ -88,11 +88,10 @@ router.post('/saveData', (request, response) => {
     });
     console.log(saveDataArray);
 
-
     response.status(200).json({
-        success: "Sikeres mentés"
+        success: 'Sikeres mentés'
     });
-})
+});
 
 let harmadikNames = [];
 router.post('/names', (request, response) => {
@@ -102,13 +101,13 @@ router.post('/names', (request, response) => {
     console.log(harmadikNames);
 
     response.status(200).json({
-        success: "Sikeres mentés!"
+        success: 'Sikeres mentés!'
     });
 });
 
 router.get('/names', (request, response) => {
     response.status(200).json({
-        success: "Siker",
+        success: 'Siker',
         results: harmadikNames
     });
 });
@@ -122,7 +121,7 @@ router.post('/vote', (request, response) => {
     while (i < votes.length && Object.keys(votes[i])[0] != nominee) {
         i++;
     }
- 
+
     if (i < votes.length) {
         votes[i][nominee]++;
     } else {
@@ -137,7 +136,6 @@ router.post('/vote', (request, response) => {
     response.status(200).json({
         result: votes
     });
-
 });
 
 router.get('/asd', (request, response) => {

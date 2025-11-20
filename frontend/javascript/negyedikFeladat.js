@@ -1,7 +1,8 @@
-
+const nomineeObj = {
+    c: 5
+};
 document.addEventListener('DOMContentLoaded', () => {
-    console.log("asd")
-    document.getElementById('submitBtn').addEventListener('click',castVote);
+    document.getElementById('submitBtn').addEventListener('click', castVote);
 });
 
 const postMethodFetch = async (url, data) => {
@@ -17,24 +18,32 @@ const postMethodFetch = async (url, data) => {
         return await response.json();
     } catch (error) {
         throw new Error('Hiba: ' + error.message);
-    };
+    }
 };
 
 const castVote = async () => {
     try {
         let textInput = document.getElementById('inputText').value;
-        if(textInput != '') {
-            const response = await postMethodFetch('/api/vote', {
-                [textInput]: ""
-            });
-            const resArr = Object.entries(response.result);
-            for(const item of resArr){
+        let nomineeDiv = document.getElementById('nomineeDiv');
+        let contDiv = document.createElement('div');
 
-                console.log(item[1][textInput])
+        if (textInput != '') {
+            const response = await postMethodFetch('/api/vote', {
+                [textInput]: ''
+            });
+
+            const resArr = Object.entries(response.result);
+            for (let i = 0; i < resArr.length; i++) {
+                let tempArr = Object.entries(resArr[i][1])[0];
+                let p = document.createElement('p');
+
+                p.innerText = tempArr[0] + ' : ' + tempArr[1];
+                contDiv.appendChild(p);
             }
-            //console.log(resArr[0][1]);
+
+            nomineeDiv.replaceChildren(contDiv);
         }
-    } catch(err){
+    } catch (err) {
         console.log(err);
     }
-}
+};
