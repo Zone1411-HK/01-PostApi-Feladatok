@@ -41,6 +41,9 @@ router.get('/harmadikFeladat', (request, response) => {
 router.get('/negyedikFeladat', (request, response) => {
     response.sendFile(path.join(__dirname, '../frontend/html/negyedikFeladat.html'));
 });
+router.get('/otodikFeladat', (request, response) => {
+    response.sendFile(path.join(__dirname, '../frontend/html/otodikFeladat.html'));
+});
 
 //!API endpoints
 app.use('/', router);

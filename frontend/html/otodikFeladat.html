@@ -11,15 +11,18 @@
         <script src="../bootstrap/js/bootstrap.min.js"></script>
         <!--!CSS-->
         <link rel="stylesheet" href="../css/index.css" />
+        <!--!JavaScript-->
+        <script src="../javascript/otodikFeladat.js"></script>
     </head>
     <body>
         <div class="container-fluid">
-            <div class="row text-center">
-                <a href="/elsoFeladat" class="display-5">Első Feladat</a>
-                <a href="/masodikFeladat" class="display-5">Második Feladat</a>
-                <a href="/harmadikFeladat" class="display-5">Harmadik Feladat</a>
-                <a href="/negyedikFeladat" class="display-5">Negyedik Feladat</a>
-                <a href="/otodikFeladat" class="display-5">Ötödik Feladat</a>
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center mt-5" id="taskInput">
+                    <label for="textInput">Task: </label>
+                    <input type="text" id="textInput" />
+                    <input type="button" value="Submit" id="submitInput" />
+                </div>
+                <div class="col-12 d-flex justify-content-center mt-5" id="listDiv"></div>
             </div>
         </div>
     </body>

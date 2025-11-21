@@ -138,6 +138,23 @@ router.post('/vote', (request, response) => {
     });
 });
 
+let taskArray = ['TEST'];
+router.post('/todos', (request, response) => {
+    const { task } = request.body;
+    taskArray.push(task);
+
+    response.status(200).json({
+        status: 'POST Successful'
+    });
+});
+
+router.get('/todos', (request, response) => {
+    response.status(200).json({
+        status: 'GET Successful',
+        result: taskArray
+    });
+});
+
 router.get('/asd', (request, response) => {
     response.status(200).json({
         success: 'asd'
